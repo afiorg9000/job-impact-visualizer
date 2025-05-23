@@ -55,7 +55,7 @@ const timelineEvents = [
   {
     year: '2024',
     title: '60–70% of tasks technically automatable',
-    subtitle: 'McKinsey 2023 report',
+    subtitle: 'Technical potential if fully deployed (McKinsey 2023)',
     progress: 0,
     color: 'bg-emerald-500'
   },
@@ -67,9 +67,9 @@ const timelineEvents = [
     color: 'bg-orange-500'
   },
   {
-    year: '2035',
-    title: '70–85% of tasks automatable, most jobs reshaped',
-    subtitle: 'Economic/AI integration pressure',
+    year: '2045',
+    title: '50% of work hours automated in practice',
+    subtitle: 'Projected real-world adoption midpoint (models 2030–2060)​',
     progress: 75,
     color: 'bg-red-500'
   },
@@ -142,9 +142,7 @@ const TaskAutomationViz = ({ job }: { job: string }) => {
   
   useEffect(() => {
     if (job) {
-      setShowPercent(false);
-      const timer = setTimeout(() => setShowPercent(true), 300);
-      return () => clearTimeout(timer);
+      setShowPercent(true);
     }
   }, [job]);
   
