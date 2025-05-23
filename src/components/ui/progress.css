@@ -1,0 +1,133 @@
+
+.progress-root {
+  position: relative;
+  height: 16px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+}
+
+.dark .progress-root {
+  background-color: #1f2937;
+}
+
+.progress-indicator {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.progress-blue {
+  background-color: #3b82f6;
+}
+
+.progress-red {
+  background-color: #ef4444;
+}
+
+.progress-green {
+  background-color: #10b981;
+}
+
+.progress-gray {
+  background-color: #6b7280;
+}
+
+.progress-orange {
+  background-color: #f97316;
+}
+
+.timeline-indicator {
+  background: linear-gradient(to right, #3b82f6 0%, #3b82f6 25%, #f97316 25%, #f97316 50%, #ef4444 50%, #ef4444 75%, #6b7280 75%, #6b7280 100%);
+  background-size: 400% 100%;
+  background-position: calc(var(--timeline-phase, 0) * 100%);
+  transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1), background-position 1.2s ease;
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.timeline-marker {
+  position: relative;
+  z-index: 10;
+}
+
+/* Circular Progress */
+.progress-circle-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+
+.progress-circle-bg {
+  fill: none;
+  stroke: #f3f4f6;
+  stroke-width: 12;
+}
+
+.dark .progress-circle-bg {
+  stroke: #1f2937;
+}
+
+.progress-circle-indicator {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.progress-circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@keyframes grow-width {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+
+.animate-width {
+  animation: grow-width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes circle-animation {
+  from { stroke-dashoffset: var(--circle-circumference); }
+  to { stroke-dashoffset: var(--circle-target); }
+}
+
+.animate-circle {
+  animation: circle-animation 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.task-percent-animation {
+  display: inline-block;
+  opacity: 0;
+  animation: fade-in-number 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fade-in-number {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
